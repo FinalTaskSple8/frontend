@@ -1,26 +1,37 @@
 import axios from "axios";
-import tokenManager from "@/commons/utils/token";
-import environment from "@/commons/utils/environment";
 
 class AuthLoginPwdService {
   static call = async (params = {}) => {
-    const { getToken } = tokenManager();
-    const token = getToken();
-    params = Object.assign(params, {
-      token,
-    });
-
-    const encodedData = `token=${token}`;
-
     try {
-      const response = await axios.post(
-        `${environment.rootApi}/auth/login/pwd?${encodedData}`,
-        params,
+      // Ambil semua pengguna dari db.json
+      const response = await axios.get("http://localhost:3004/users");
+      const users = response.data;
+
+      // Cari pengguna berdasarkan email dan password
+      const user = users.find(
+        (u) => u.email === params.email && u.password === params.password
       );
 
-      return response;
+      if (user) {
+        return {
+          status: 200,
+          data: {
+            token: `mock-token-${user.id}`, // Token mock untuk simulasi
+            user,
+          },
+        };
+      } else {
+        return {
+          status: 401,
+          message: "Email atau password salah",
+        };
+      }
     } catch (e) {
-      return {};
+      console.error("Error during login:", e);
+      return {
+        status: 500,
+        message: "Terjadi kesalahan pada server",
+      };
     }
   };
 }

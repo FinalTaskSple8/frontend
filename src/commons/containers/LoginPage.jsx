@@ -12,7 +12,6 @@ const LoginPage = () => {
 
   const loginWithPassword = (data) => {
     loginPassword(data);
-    navigate(state);
   };
 
   if (isAuthenticated) {

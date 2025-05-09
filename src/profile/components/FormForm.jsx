@@ -30,22 +30,36 @@ import saveChanges from '../services/saveChanges'
 
 import { notifyError, notifySuccess} from "@/commons/utils/toaster";
 import * as Layouts from "@/commons/layouts";
+import { useAuth } from "@/commons/auth";
 
-const FormForm = ({ 
- }) => {
-  const { 
-    control, 
-    handleSubmit,
-  } = useForm()
-  
-  
-  
-  
-  const navigate = useNavigate()
-  
-  const send = (data) => {
-    const cleanData = cleanFormData(data)
-  }
+const FormForm = () => {
+  const { currentUser, setCurrentUser } = useAuth(); // Pastikan setCurrentUser tersedia
+  const { control, handleSubmit } = useForm();
+  const navigate = useNavigate();
+
+  const send = async (data) => {
+    try {
+      const updatedData = {
+        ...currentUser,
+        name: data.name,
+        email: data.email,
+        phoneNum: data.phoneNum,
+      };
+
+      const response = await saveChanges(currentUser.id, updatedData);
+
+      if (response) {
+        setCurrentUser(response); // Perbarui data pengguna di context
+        notifySuccess("Data berhasil diperbarui!");
+        navigate("/profile");
+      } else {
+        notifyError("Gagal memperbarui data pengguna.");
+      }
+    } catch (error) {
+      console.error("Error saving changes:", error);
+      notifyError("Gagal memperbarui data pengguna.");
+    }
+  };
   
   
   return (

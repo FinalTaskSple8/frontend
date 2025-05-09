@@ -1,24 +1,103 @@
 {
-    "users": [
-      { "id": 1, "name": "Andi Saputra", "email": "andi@example.com", "phoneNum": "08123456789" },
-      { "id": 2, "name": "Sita Dewi", "email": "sita@example.com", "phoneNum": "08987654321" }
-    ],
-    "hotels": [
-    { "id": "1", "name": "Hotel Mawar", "location": "Jakarta" },
-    { "id": "2", "name": "Hotel Melati", "location": "Bandung" },
-    { "id": "3", "name": "Hotel Sakura", "location": "Surabaya" }
-    ],
-    "rooms": [
-      { "id": 1, "hotelId": "1", "type": "Standard", "price": 300000, "isAvailable": true, "number": 101 },
-      { "id": 2, "hotelId": "1", "type": "Deluxe", "price": 500000, "isAvailable": true, "number": 102 },
-      { "id": 3, "hotelId": "2", "type": "Suite", "price": 800000, "isAvailable": false, "number": 201 }
-    ],
-    "bookings": [
-      { "id": 1, "userId": 1, "roomId": 1, "checkInDate": "2025-05-10", "checkOutDate": "2025-05-12", "numberOfGuests": 2, "totalPrice": 600000, "status": "CONFIRMED", "paymentId": 1 },
-      { "id": 2, "userId": 2, "roomId": 3, "checkInDate": "2025-05-15", "checkOutDate": "2025-05-18", "numberOfGuests": 3, "totalPrice": 2400000, "status": "CONFIRMED", "paymentId": 2 }
-    ],
-    "payments": [
-      { "id": 1, "userId": 1, "bookingId": 1, "totalAmount": 600000, "status": "PAID", "paymentMethod": "Cash" },
-      { "id": 2, "userId": 2, "bookingId": 2, "totalAmount": 2400000, "status": "PENDING", "paymentMethod": "Online" }
-    ]
-  }
+  "users": [
+    {
+      "id": "1",
+      "name": "Hotel Mawar",
+      "email": "clarasistaa26@gmail.com",
+      "phoneNum": "123",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "name": "Sita Dewi",
+      "email": "sita@example.com",
+      "phoneNum": "08987654321",
+      "password": "password123"
+    }
+  ],
+  "hotels": [
+    {
+      "id": "1",
+      "name": "Hotel Mawar",
+      "location": "Jakarta"
+    },
+    {
+      "id": "2",
+      "name": "Hotel Melati",
+      "location": "Bandung"
+    },
+    {
+      "id": "3",
+      "name": "Hotel Sakura",
+      "location": "Surabaya"
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "hotelId": "1",
+      "type": "Standard",
+      "price": 300000,
+      "isAvailable": true,
+      "number": 101
+    },
+    {
+      "id": 2,
+      "hotelId": "1",
+      "type": "Deluxe",
+      "price": 500000,
+      "isAvailable": true,
+      "number": 102
+    },
+    {
+      "id": 3,
+      "hotelId": "2",
+      "type": "Suite",
+      "price": 800000,
+      "isAvailable": false,
+      "number": 201
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "userId": 1,
+      "roomId": 1,
+      "checkInDate": "2025-05-10",
+      "checkOutDate": "2025-05-12",
+      "numberOfGuests": 2,
+      "totalPrice": 600000,
+      "status": "CONFIRMED",
+      "paymentId": 1
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "roomId": 3,
+      "checkInDate": "2025-05-15",
+      "checkOutDate": "2025-05-18",
+      "numberOfGuests": 3,
+      "totalPrice": 2400000,
+      "status": "CONFIRMED",
+      "paymentId": 2
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "userId": 1,
+      "bookingId": 1,
+      "totalAmount": 600000,
+      "status": "PAID",
+      "paymentMethod": "Cash"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "bookingId": 2,
+      "totalAmount": 2400000,
+      "status": "PENDING",
+      "paymentMethod": "Online"
+    }
+  ]
+}

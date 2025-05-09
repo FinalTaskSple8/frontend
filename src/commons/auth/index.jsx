@@ -177,32 +177,26 @@ export const AuthProvider = ({ children }) => {
   };
 
   // [END] GOOGLE Method
+const [currentUser, setCurrentUser] = React.useState(null);
+const loginPassword = async (params) => {
+  const data = await AuthLoginPwdService.call({
+    email: params.email,
+    password: params.password,
+  });
 
-  const loginPassword = async (params) => {
-    const data = await AuthLoginPwdService.call({
-      email: params.email,
-      password: params.password,
-    });
-    var status = data["status"];
-    var tokenId = data["data"]["data"] ? data["data"]["data"]["token"] : [];
-    var allowedPermissions = data["data"]["data"]
-      ? data["data"]["data"]["allowedPermissions"]
-      : [];
-    var tokenKeepLogin = data["data"]["data"]
-      ? data["data"]["data"]["token_keep_login"]
-      : [];
-    if (
-      tokenId == [] ||
-      !tokenId ||
-      tokenKeepLogin == [] ||
-      !tokenKeepLogin ||
-      status != 200
-    ) {
-      return;
-    }
-    login(tokenId, tokenKeepLogin);
-    setPermissions(allowedPermissions);
-  };
+  if (data.status === 200) {
+    const tokenId = data.data.token;
+    const user = data.data.user;
+
+    // Simpan token dan set pengguna sebagai terautentikasi
+    login(tokenId);
+    setPermissions(["user"]); // Atur izin pengguna jika diperlukan
+    setCurrentUser(user);
+    console.log("User logged in:", user);
+  } else {
+    alert(data.message); // Tampilkan pesan error
+  }
+};
 
   const registerPassword = async (params) => {
     const data = await AuthRegisterPwdService.call({
@@ -269,6 +263,8 @@ export const AuthProvider = ({ children }) => {
   const value = {
     permissions,
     isAuthenticated,
+    currentUser,
+    setCurrentUser,
     login,
     loginGoogle,
     loginPassword,
