@@ -36,7 +36,7 @@ export default defineConfig(({ mode }) => {
     },
     envDir: process.cwd(),
     build: {
-      outDir: process.cwd() + "/dist",
+      // outDir: process.cwd() + "/dist",
       emptyOutDir: true,
       commonjsOptions: {
         transformMixedEsModules: true,
