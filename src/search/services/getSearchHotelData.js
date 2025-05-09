@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getSearchHotelData = () => {
-  return axios.get("http://localhost:3004/hotels").catch((error) => {
+  return axios.get("https://json-server-production-cbaa.up.railway.app/hotels").catch((error) => {
     console.error(error);
     throw new Error("Failed to fetch hotel data");
   });

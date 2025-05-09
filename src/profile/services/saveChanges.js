@@ -6,7 +6,7 @@ import environment from '@/commons/utils/environment'
 const saveChanges = async (userId, updatedData) => {
 	try {
     const response = await axios.put(
-      `http://localhost:3004/users/${userId}`,
+      `https://json-server-production-cbaa.up.railway.app/users/${userId}`,
       updatedData
     );
     return response.data;

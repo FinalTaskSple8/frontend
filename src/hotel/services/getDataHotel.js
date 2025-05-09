@@ -4,7 +4,7 @@ import environment from "@/commons/utils/environment";
 import { notifyError } from "@/commons/utils/toaster";
 
 const getDataHotel = () => {
-    return axios.get("http://localhost:3004/hotels")
+    return axios.get("https://json-server-production-cbaa.up.railway.app/hotels")
         .catch((error) => {
             console.error(error);
             notifyError(error);

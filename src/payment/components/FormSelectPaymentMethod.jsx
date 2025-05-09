@@ -29,7 +29,7 @@ const FormSelectPaymentMethod = () => {
         const numericBookingId = parseInt(bookingId, 10);
 
         // Lakukan request ke API dengan bookingId sebagai integer
-        const response = await axios.get(`http://localhost:3004/bookings/${numericBookingId}`);
+        const response = await axios.get(`https://json-server-production-cbaa.up.railway.app/bookings/${numericBookingId}`);
         setBookingSummary(response.data); // Simpan data booking ke state
       } catch (error) {
         console.error("Failed to fetch booking data:", error);
@@ -60,7 +60,7 @@ const FormSelectPaymentMethod = () => {
 
     try {
       // POST data payment ke API
-      await axios.post("http://localhost:3004/payments", newPayment);
+      await axios.post("https://json-server-production-cbaa.up.railway.app/payments", newPayment);
 
       // Simpan data payment ke localStorage
       localStorage.setItem("paymentData", JSON.stringify(newPayment));

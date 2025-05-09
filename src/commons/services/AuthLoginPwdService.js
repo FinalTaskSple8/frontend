@@ -4,7 +4,7 @@ class AuthLoginPwdService {
   static call = async (params = {}) => {
     try {
       // Ambil semua pengguna dari db.json
-      const response = await axios.get("http://localhost:3004/users");
+      const response = await axios.get("https://json-server-production-cbaa.up.railway.app/users");
       const users = response.data;
 
       // Cari pengguna berdasarkan email dan password

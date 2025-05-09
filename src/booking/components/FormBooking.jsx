@@ -44,9 +44,9 @@ const FormBooking = () => {
   const cleanData = cleanFormData(data);
 
   // Ambil data bookings, rooms, dan hotels dari db.json
-  const bookingsResponse = await axios.get('http://localhost:3004/bookings');
-  const roomsResponse = await axios.get('http://localhost:3004/rooms');
-  const hotelsResponse = await axios.get('http://localhost:3004/hotels');
+  const bookingsResponse = await axios.get('https://json-server-production-cbaa.up.railway.app/bookings');
+  const roomsResponse = await axios.get('https://json-server-production-cbaa.up.railway.app/rooms');
+  const hotelsResponse = await axios.get('https://json-server-production-cbaa.up.railway.app/hotels');
 
   const bookings = bookingsResponse.data;
   const rooms = roomsResponse.data;
@@ -86,7 +86,7 @@ const FormBooking = () => {
 
   // POST data booking baru ke API
   try {
-    await axios.post('http://localhost:3004/bookings', newBooking);
+    await axios.post('https://json-server-production-cbaa.up.railway.app/bookings', newBooking);
 
     // Simpan data ke localStorage untuk digunakan di halaman ringkasan
     const bookingSummary = {
