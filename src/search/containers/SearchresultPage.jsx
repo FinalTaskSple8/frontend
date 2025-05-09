@@ -1,74 +1,63 @@
-/*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
-	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
-*/
-import React, { useEffect, useState, useContext} from 'react'
-import { Button, Spinner } from "@/commons/components"
-import * as Layouts from '@/commons/layouts';
-import { Link } from "react-router";
-import { useParams } from "@/commons/hooks/useParams"
-import { HeaderContext } from "@/commons/components"
-import { useNavigate } from "react-router";
-import { useAuth } from '@/commons/auth';
-import Table from "../components/invalidTable";
+import React, { useEffect, useState, useContext } from "react";
+import * as Layouts from "@/commons/layouts";
+import { useSearchParams } from "react-router"; // Gunakan useSearchParams untuk membaca query string
+import { HeaderContext } from "@/commons/components";
+import HotelCard from "../components/HotelCard";
+import getSearchHotelData from "../services/getSearchHotelData";
 
-import getSearchHotelData from '../services/getSearchHotelData'
-const SearchresultPage = props => {
-const { date, name, location, guest } = useParams()
-	const { checkPermission } = useAuth();
+const SearchresultPage = (props) => {
+  const [searchParams] = useSearchParams(); // Ambil parameter dari URL
+  const name = searchParams.get("name") || ""; // Ambil nilai "name"
+  const location = searchParams.get("location") || ""; // Ambil nilai "location"
 
-	const [isLoading, setIsLoading] = useState({
-	hotel: false,
+  const { setTitle } = useContext(HeaderContext);
+  const [isLoading, setIsLoading] = useState({ listHotel: false });
+  const [searchHotelData, setSearchHotelData] = useState([]);
 
-	});
-	const { setTitle } = useContext(HeaderContext);
-
-const [searchHotelData, setSearchHotelData] = useState()
-	
-	
-	
-	useEffect(() => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading((prev) => ({ ...prev, listHotel: true }));
+        const { data: allHotels } = await getSearchHotelData(); // Ambil semua data hotel
+        const filteredHotels = allHotels.filter(
+          (hotel) =>
+            hotel.name.toLowerCase().includes(name.toLowerCase()) &&
+            hotel.location.toLowerCase().includes(location.toLowerCase())
+        ); // Filter berdasarkan name dan location
+		console.log(filteredHotels);
+        setSearchHotelData(filteredHotels);
 		
+      } catch (error) {
+        console.error("Error fetching hotel data:", error);
+      } finally {
+        setIsLoading((prev) => ({ ...prev, listHotel: false }));
+      }
+    };
+    fetchData();
+  }, [name, location]); // Jalankan ulang jika parameter berubah
 
-		const fetchData = async () => {
-			try {
-				setIsLoading(prev => ({...prev, hotel: true}))
-				const { data: searchHotelData } = await getSearchHotelData({ guest, name, location, date })
-				setSearchHotelData(searchHotelData.data)
-			} finally {
-				setIsLoading(prev => ({...prev, hotel: false}))
-			}
-		}
-		fetchData()
-  	}, [])
+  useEffect(() => {
+    setTitle("Search Result Page");
+	console.log("searchHotelData diperbarui:", searchHotelData);
+}, [searchHotelData]);
+	console.log("searchHotelData yang akan di-render:", searchHotelData);
+  return (
+  <Layouts.ViewContainerLayout>
+    {searchHotelData && searchHotelData.length > 0 ? (
+      <Layouts.ListContainerCardLayout
+        title={"List Hotel"}
+        singularName={"Hotel"}
+        items={[searchHotelData]}
+        isLoading={isLoading.listHotel}
+      >
+        <HotelCard searchHotelData={searchHotelData} />
+      </Layouts.ListContainerCardLayout>
+    ) : (
+      <p>Data hotel tidak ditemukan.</p> // Fallback jika data kosong
+    )}
+  </Layouts.ViewContainerLayout>
+);
+  
+};
 
-	
-	useEffect(() => {
-		setTitle("Search result Page")
-	}, []);
-return (
-	<Layouts.ViewContainerLayout
-		buttons={
-			<>
-			<></>
-			</>
-		}
-	>
-<Layouts.ListContainerTableLayout
-	title={"Hotel"}
-	singularName={""}
-	items={[searchHotelData]}
-	isLoading={isLoading.hotel}
->
-	<invalidTable
-		searchHotelData={searchHotelData}
-		
-	/>
-</Layouts.ListContainerTableLayout>
-
-	</Layouts.ViewContainerLayout>
-  )
-}
-export default SearchresultPage
-
+export default SearchresultPage;

@@ -69,3 +69,10 @@ addMenu({
     permission: '',
 	subMenus: []
 })
+
+addMenu({
+	route: '/hotel/:hotelId/rooms/:number/booking',
+    label: 'Booking',
+    permission: '',
+	subMenus: []
+})

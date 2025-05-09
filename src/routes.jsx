@@ -8,6 +8,7 @@ import profileRoutes from "@/profile/routes";
 import hotelManagementRoutes from "@/hotelManagement/routes";
 import searchRoutes from "@/search/routes";
 import hotelRoutes from "@/hotel/routes";
+import bookingRoutes from "@/booking/routes";
 
 const GlobalRoutes = () => {
   const router = useRoutes([
@@ -20,6 +21,7 @@ const GlobalRoutes = () => {
 	...hotelManagementRoutes, 
 	...searchRoutes, 
 	...hotelRoutes, 
+	...bookingRoutes, 
   ])
   return router
 }

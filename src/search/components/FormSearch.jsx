@@ -26,12 +26,12 @@ import {
   findAllowedPermission,
 } from "@/commons/constants/allowedPermission";
 import cleanFormData from "@/commons/utils/cleanFormData";
-import saveHotel from '../services/saveHotel'
+import searchHotel from '../services/searchHotel'
 
 import { notifyError, notifySuccess} from "@/commons/utils/toaster";
 import * as Layouts from "@/commons/layouts";
 
-const FormAddHotel = ({ 
+const FormSearch = ({ 
  }) => {
   const { 
     control, 
@@ -43,16 +43,19 @@ const FormAddHotel = ({
   
   const navigate = useNavigate()
   
-  const send = (data) => {
-    const cleanData = cleanFormData(data)
-  }
+  const cari = (data) => {
+	const cleanData = cleanFormData(data);
+	const queryString = new URLSearchParams(cleanData).toString(); // Buat query string dari data form
+	console.log(queryString);
+	navigate(`/search/result?${queryString}`); // Arahkan ke halaman hasil pencarian
+	};
   
   
   return (
 	<div>
 	  <Layouts.FormComponentLayout
-		  title="Add Hotel" 
-		  onSubmit={handleSubmit(send)}
+		  title="Search" 
+		  onSubmit={handleSubmit(cari)}
 	
 	    vas={[
 		  ]}
@@ -96,7 +99,7 @@ const FormAddHotel = ({
 		  ]}
 	
 		  itemsEvents={[
-				<Button key="Send" type="submit" variant="primary">Send</Button>
+				<Button key="Cari" type="submit" variant="primary">Cari</Button>
 	    ]}
 	  />
 	    
@@ -104,4 +107,4 @@ const FormAddHotel = ({
   )
 }
 
-export default FormAddHotel
+export default FormSearch

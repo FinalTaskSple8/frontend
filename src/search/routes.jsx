@@ -1,5 +1,5 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -17,7 +17,7 @@ const searchRoutes = [
 	
 ,
 { 
-	path: "/search/result?name?location?date?guest",
+	path: "/search/result",
 	element: <SearchresultPage />,
 }
 

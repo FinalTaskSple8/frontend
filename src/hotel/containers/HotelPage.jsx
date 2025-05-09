@@ -1,5 +1,5 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -11,14 +11,14 @@ import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useNavigate } from "react-router";
 import { useAuth } from '@/commons/auth';
-import Table from "../components/invalidTable";
+import HotelCard from "../components/HotelCard";
 
 import getDataHotel from '../services/getDataHotel'
 const HotelPage = props => {
 const { checkPermission } = useAuth();
 
 	const [isLoading, setIsLoading] = useState({
-	hotel: false,
+	listHotel: false,
 
 	});
 	const { setTitle } = useContext(HeaderContext);
@@ -32,11 +32,12 @@ const [dataHotel, setDataHotel] = useState()
 
 		const fetchData = async () => {
 			try {
-				setIsLoading(prev => ({...prev, hotel: true}))
-				const { data: dataHotel } = await getDataHotel()
-				setDataHotel(dataHotel.data)
+				setIsLoading(prev => ({...prev, listHotel: true}))
+				const dataHotel = await getDataHotel();
+                console.log("📦 dataHotel dari API:", dataHotel?.data); // ✅ Log di sini
+                setDataHotel(dataHotel?.data); // <- satu level aja
 			} finally {
-				setIsLoading(prev => ({...prev, hotel: false}))
+				setIsLoading(prev => ({...prev, listHotel: false}))
 			}
 		}
 		fetchData()
@@ -54,17 +55,17 @@ return (
 			</>
 		}
 	>
-<Layouts.ListContainerTableLayout
-	title={"Hotel"}
-	singularName={""}
+<Layouts.ListContainerCardLayout
+	title={"List Hotel"}
+	singularName={"Hotel"}
 	items={[dataHotel]}
-	isLoading={isLoading.hotel}
+	isLoading={isLoading.listHotel}
 >
-	<invalidTable
+	<HotelCard
 		dataHotel={dataHotel}
 		
-	/>
-</Layouts.ListContainerTableLayout>
+  	/>
+</Layouts.ListContainerCardLayout>
 
 	</Layouts.ViewContainerLayout>
   )

@@ -1,5 +1,5 @@
 /*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -10,19 +10,28 @@ import { Link } from "react-router";
 import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useSearchParams } from "react-router";
-import FormAddHotel from '../components/FormAddHotel'
-const AddHotelPage = props => {
+import FormBooking from '../components/FormBooking';
+
+const BookingPage = props => {
 const [isLoading, setIsLoading] = useState({
-	addHotel: false,
+	bookingForm: false,
 
 	});
 	const { setTitle } = useContext(HeaderContext);
 
+useEffect(() => {
+    const fetch = async () => {
+	  setIsLoading(prev => ({...prev, bookingForm: true}))
 
+
+	    setIsLoading(prev => ({...prev, bookingForm: false}))
+    }
+	fetch()
+  }, [])
 
 	
 	useEffect(() => {
-		setTitle("Add Hotel Page")
+		setTitle("Booking Page")
 	}, []);
 return (
 	<Layouts.ViewContainerLayout
@@ -33,10 +42,10 @@ return (
 		}
 	>
 <Layouts.FormContainerLayout
-		singularName={"Hotel"}
-		
+		singularName={"Form"}
+		isLoading={isLoading.bookingForm}
 	>
-		<FormAddHotel
+		<FormBooking
 			{...props}
 		/>
 	</Layouts.FormContainerLayout>
@@ -44,5 +53,5 @@ return (
 	</Layouts.ViewContainerLayout>
   )
 }
-export default AddHotelPage
+export default BookingPage
 

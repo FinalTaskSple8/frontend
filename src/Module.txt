@@ -4,13 +4,13 @@ Profile
 
 
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
 	
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -27,25 +27,25 @@ HotelManagement
 
 
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
 	
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
 	
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
 
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -60,13 +60,13 @@ Search
 
 
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
 	
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -81,17 +81,669 @@ Hotel
 
 
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
 	
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
 	
+
+
+
+
+Booking
+	tes1 Booking Page
+	tes1 Booking Summary Page
+
+
+/*
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 08/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Profile
+	tes1 Edit Profile Page
+	tes1 Profile Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+HotelManagement
+	tes1 Manage Hotel Page
+	tes1 Add Hotel Page
+	tes1 Manage Room Page
+	tes1 Add Room Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Search
+	tes1 Search Page
+	tes1 Search result Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Hotel
+	tes1 Room Page
+	tes1 Hotel Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+
+
+
+
+Booking
+	tes1 Booking Page
+	tes1 Booking Summary Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Profile
+	tes1 Edit Profile Page
+	tes1 Profile Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+HotelManagement
+	tes1 Manage Hotel Page
+	tes1 Add Hotel Page
+	tes1 Manage Room Page
+	tes1 Add Room Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Search
+	tes1 Search Page
+	tes1 Search result Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Hotel
+	tes1 Room Page
+	tes1 Hotel Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+
+
+
+
+Booking
+	tes1 Booking Page
+	tes1 Booking Summary Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Profile
+	tes1 Edit Profile Page
+	tes1 Profile Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+HotelManagement
+	tes1 Manage Hotel Page
+	tes1 Add Hotel Page
+	tes1 Manage Room Page
+	tes1 Add Room Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Search
+	tes1 Search Page
+	tes1 Search result Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Hotel
+	tes1 Room Page
+	tes1 Hotel Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+
+
+
+
+Booking
+	tes1 Booking Page
+	tes1 Booking Summary Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Profile
+	tes1 Edit Profile Page
+	tes1 Profile Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+HotelManagement
+	tes1 Manage Hotel Page
+	tes1 Add Hotel Page
+	tes1 Manage Room Page
+	tes1 Add Room Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Search
+	tes1 Search Page
+	tes1 Search result Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Hotel
+	tes1 Room Page
+	tes1 Hotel Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+
+
+
+
+Booking
+	tes1 Booking Page
+	tes1 Booking Summary Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Profile
+	tes1 Edit Profile Page
+	tes1 Profile Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+HotelManagement
+	tes1 Manage Hotel Page
+	tes1 Add Hotel Page
+	tes1 Manage Room Page
+	tes1 Add Room Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Search
+	tes1 Search Page
+	tes1 Search result Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Hotel
+	tes1 Room Page
+	tes1 Hotel Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+
+
+
+
+Booking
+	tes1 Booking Page
+	tes1 Booking Summary Page
+
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
 
 
 

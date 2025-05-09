@@ -1,5 +1,5 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -41,7 +41,17 @@ return (
 	<Layouts.ViewContainerLayout
 		buttons={
 			<>
-			<></>
+			<Layouts.ViewContainerButtonLayout>
+			  	<Link to={`/profile/edit
+			  	`}>
+			  		<Button className="p-2 w-full" variant="primary">
+			  		  Edit Profile
+			  		</Button>
+			  	</Link>
+			  	
+			  	
+			
+			  </Layouts.ViewContainerButtonLayout>
 			</>
 		}
 	>

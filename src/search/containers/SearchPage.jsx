@@ -1,5 +1,5 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -10,10 +10,10 @@ import { Link } from "react-router";
 import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useSearchParams } from "react-router";
-import FormSearchForm from '../components/FormSearchForm'
+import FormSearch from '../components/FormSearch'
 const SearchPage = props => {
 const [isLoading, setIsLoading] = useState({
-	searchForm: false,
+	search: false,
 
 	});
 	const { setTitle } = useContext(HeaderContext);
@@ -33,10 +33,10 @@ return (
 		}
 	>
 <Layouts.FormContainerLayout
-		singularName={"Form"}
+		singularName={""}
 		
 	>
-		<FormSearchForm
+		<FormSearch
 			{...props}
 		/>
 	</Layouts.FormContainerLayout>

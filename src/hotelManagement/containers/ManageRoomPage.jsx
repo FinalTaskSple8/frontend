@@ -1,5 +1,5 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -11,14 +11,14 @@ import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useNavigate } from "react-router";
 import { useAuth } from '@/commons/auth';
-import Table from "../components/invalidTable";
+import RoomCard from "../components/RoomCard";
 
 import getRoomData from '../services/getRoomData'
 const ManageRoomPage = props => {
 const { checkPermission } = useAuth();
 
 	const [isLoading, setIsLoading] = useState({
-	room: false,
+	listRoom: false,
 
 	});
 	const { setTitle } = useContext(HeaderContext);
@@ -33,11 +33,11 @@ const [roomData, setRoomData] = useState()
 
 		const fetchData = async () => {
 			try {
-				setIsLoading(prev => ({...prev, room: true}))
+				setIsLoading(prev => ({...prev, listRoom: true}))
 				const { data: roomData } = await getRoomData()
 				setRoomData(roomData.data)
 			} finally {
-				setIsLoading(prev => ({...prev, room: false}))
+				setIsLoading(prev => ({...prev, listRoom: false}))
 			}
 		}
 		fetchData()
@@ -59,17 +59,17 @@ return (
 			</>
 		}
 	>
-<Layouts.ListContainerTableLayout
-	title={"Room"}
-	singularName={""}
+<Layouts.ListContainerCardLayout
+	title={"List Room"}
+	singularName={"Room"}
 	items={[roomData]}
-	isLoading={isLoading.room}
+	isLoading={isLoading.listRoom}
 >
-	<invalidTable
+	<RoomCard
 		roomData={roomData}
 		
-	/>
-</Layouts.ListContainerTableLayout>
+  	/>
+</Layouts.ListContainerCardLayout>
 
 	</Layouts.ViewContainerLayout>
   )
