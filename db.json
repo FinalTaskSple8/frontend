@@ -80,6 +80,61 @@
       "totalPrice": 2400000,
       "status": "CONFIRMED",
       "paymentId": 2
+    },
+    {
+      "id": 3,
+      "userId": "1",
+      "roomId": 1,
+      "checkInDate": "2025-05-10",
+      "checkOutDate": "2025-05-11",
+      "numberOfGuests": "1",
+      "totalPrice": 300000,
+      "status": "CONFIRMED",
+      "paymentId": 3
+    },
+    {
+      "id": 4,
+      "userId": "1",
+      "roomId": 1,
+      "checkInDate": "2025-05-10",
+      "checkOutDate": "2025-05-11",
+      "numberOfGuests": "1",
+      "totalPrice": 300000,
+      "status": "CONFIRMED",
+      "paymentId": 4
+    },
+    {
+      "id": 5,
+      "userId": "1",
+      "roomId": 1,
+      "checkInDate": "2025-05-10",
+      "checkOutDate": "2025-05-17",
+      "numberOfGuests": "1",
+      "totalPrice": 300000,
+      "status": "CONFIRMED",
+      "paymentId": 5
+    },
+    {
+      "id": 6,
+      "userId": "1",
+      "roomId": 1,
+      "checkInDate": "2025-05-10",
+      "checkOutDate": "2025-05-17",
+      "numberOfGuests": "1",
+      "totalPrice": 300000,
+      "status": "CONFIRMED",
+      "paymentId": 6
+    },
+    {
+      "id": 7,
+      "userId": "1",
+      "roomId": 1,
+      "checkInDate": "2025-05-10",
+      "checkOutDate": "2025-05-13",
+      "numberOfGuests": "1",
+      "totalPrice": 300000,
+      "status": "CONFIRMED",
+      "paymentId": 7
     }
   ],
   "payments": [
