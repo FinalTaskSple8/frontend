@@ -18,6 +18,7 @@ const BookingSummaryPage = () => {
 
     // Ambil data booking dari localStorage
     const data = JSON.parse(localStorage.getItem('bookingSummary'));
+    console.log('bookingSummary', data);
     setBookingSummary(data);
   }, []);
 
@@ -25,11 +26,15 @@ const BookingSummaryPage = () => {
     <Layouts.ViewContainerLayout
       buttons={
         <Layouts.ViewContainerButtonLayout>
-          <Link to={`/hotel/:bookingId/payment`}>
-            <Button className="p-2" variant="primary">
-              Payment
-            </Button>
-          </Link>
+          <Link to={{
+              pathname: `/hotel/${bookingSummary?.hotelId}/rooms/${bookingSummary?.roomId}/booking/${bookingSummary?.bookingId}/payment`,
+              state: { bookingSummary }
+            }}>
+            
+              <Button className="p-2" variant="primary">
+                Proceed to Payment
+              </Button>
+            </Link>
         </Layouts.ViewContainerButtonLayout>
       }
     >

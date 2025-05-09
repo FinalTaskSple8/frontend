@@ -9,6 +9,7 @@ import hotelManagementRoutes from "@/hotelManagement/routes";
 import searchRoutes from "@/search/routes";
 import hotelRoutes from "@/hotel/routes";
 import bookingRoutes from "@/booking/routes";
+import paymentRoutes from "./payment/routes";
 
 const GlobalRoutes = () => {
   const router = useRoutes([
@@ -22,6 +23,7 @@ const GlobalRoutes = () => {
 	...searchRoutes, 
 	...hotelRoutes, 
 	...bookingRoutes, 
+	...paymentRoutes,
   ])
   return router
 }

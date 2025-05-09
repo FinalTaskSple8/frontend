@@ -53,7 +53,7 @@ const FormBooking = () => {
   const hotels = hotelsResponse.data;
 
   // Hitung bookingId baru
-  const newBookingId = bookings.length > 0 ? bookings[bookings.length - 1].id + 1 : 1;
+  const newBookingId = (bookings.length > 0 ? bookings[bookings.length - 1].id + 1 : 1).toString();
 
   // Cari harga kamar berdasarkan roomId
   const room = rooms.find((room) => room.number === parseInt(number) && room.hotelId === hotelId);
@@ -90,6 +90,10 @@ const FormBooking = () => {
 
     // Simpan data ke localStorage untuk digunakan di halaman ringkasan
     const bookingSummary = {
+      bookingId: newBookingId,
+      userId: currentUser.id,
+      roomId: room.id,
+      hotelId: hotel.id,
       hotelName: hotel.name,
       hotelLocation: hotel.location,
       totalPrice,
