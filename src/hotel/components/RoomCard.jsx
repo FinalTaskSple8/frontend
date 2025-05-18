@@ -21,7 +21,7 @@ const RoomCard = ({ roomData,
   
   return (
     <Layouts.ListComponentCardLayout
-      items={[roomData]}
+      items={roomData}
   	
   	itemsAttrs={[
           {

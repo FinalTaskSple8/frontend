@@ -237,6 +237,8 @@ const loginPassword = async (params) => {
       callback();
     }
   };
+  console.log("isAuthenticated", isAuthenticated);
+  console.log("permissions", permissions);
 
   const logout = () => {
     clearToken();

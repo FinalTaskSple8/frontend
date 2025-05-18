@@ -15,6 +15,7 @@ import RoomCard from "../components/RoomCard";
 
 import getRoomData from '../services/getRoomData'
 const ManageRoomPage = props => {
+	const { hotelId } = useParams()
 const { checkPermission } = useAuth();
 
 	const [isLoading, setIsLoading] = useState({
@@ -34,8 +35,9 @@ const [roomData, setRoomData] = useState()
 		const fetchData = async () => {
 			try {
 				setIsLoading(prev => ({...prev, listRoom: true}))
-				const { data: roomData } = await getRoomData()
-				setRoomData(roomData.data)
+				const roomData = await getRoomData({ hotelId });
+				const roomArray = roomData?.data?.data ?? [];
+				setRoomData(roomArray);
 			} finally {
 				setIsLoading(prev => ({...prev, listRoom: false}))
 			}
@@ -52,10 +54,14 @@ return (
 		buttons={
 			<>
 			<Layouts.ViewContainerButtonLayout>
-			  	
-			  	
-			
-			  </Layouts.ViewContainerButtonLayout>
+				<Link to={`/manage-hotel/${hotelId}/rooms/add`}>
+					<Button className="p-2" variant="primary">
+					Add Room
+					</Button>
+				</Link>
+
+
+			</Layouts.ViewContainerButtonLayout>
 			</>
 		}
 	>
@@ -66,7 +72,7 @@ return (
 	isLoading={isLoading.listRoom}
 >
 	<RoomCard
-		roomData={roomData}
+		roomData={[roomData]}
 		
   	/>
 </Layouts.ListContainerCardLayout>

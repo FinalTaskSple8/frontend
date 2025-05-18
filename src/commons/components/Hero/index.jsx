@@ -13,9 +13,9 @@ const Hero = ({ banner }) => {
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold">Selamat Datang</h1>
           <p className="mb-5">Yuk cari tahu lebih lanjut mengenai kami!</p>
-          <Link to="/aboutus">
+          {/* <Link to="/aboutus">
             <button className="btn btn-primary">Tentang Kami</button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>

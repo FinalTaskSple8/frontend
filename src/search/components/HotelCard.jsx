@@ -36,7 +36,17 @@ const HotelCard = ({ searchHotelData }) => {
             editable: false
         },
       ]}
-      itemsEvents={(hotelItem) => []}
+      itemsEvents={(hotelItem) => [
+        <Link to={`/hotel/${hotelItem.id}/rooms`}>
+                  <Button
+                    size="sm"
+                    variant=
+                        "primary"
+                  >
+                    View Hotel
+                  </Button>
+                </Link>
+      ]}
     />
   );
 };

@@ -43,12 +43,20 @@ const FormSearch = ({
   
   const navigate = useNavigate()
   
-  const cari = (data) => {
+	const cari = async (data) => {
 	const cleanData = cleanFormData(data);
-	const queryString = new URLSearchParams(cleanData).toString(); // Buat query string dari data form
-	console.log(queryString);
-	navigate(`/search/result?${queryString}`); // Arahkan ke halaman hasil pencarian
-	};
+	try {
+		const response = await searchHotel(cleanData); // Call the searchHotel service
+		const searchResults = response.data?.data || [];
+		console.log("Search results:", searchResults);
+
+		// Pass the search results to the search result page
+		navigate("/search/result", { state: { searchResults } });
+	} catch (error) {
+		console.error("Error during search:", error);
+		notifyError("Failed to fetch search results. Please try again.");
+	}
+};
   
   
   return (

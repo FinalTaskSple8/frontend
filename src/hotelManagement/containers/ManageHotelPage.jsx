@@ -15,27 +15,23 @@ import HotelCard from "../components/HotelCard";
 
 import getDataHotel from '../services/getDataHotel'
 const ManageHotelPage = props => {
-const { checkPermission } = useAuth();
+	const { checkPermission } = useAuth();
 
-	const [isLoading, setIsLoading] = useState({
-	listHotel: false,
-
-	});
+	const [isLoading, setIsLoading] = useState({ listHotel: false });
 	const { setTitle } = useContext(HeaderContext);
 
-const [dataHotel, setDataHotel] = useState()
-	
-	
-	
+	const [dataHotel, setDataHotel] = useState([]);
+
+
 
 	useEffect(() => {
-		
 
 		const fetchData = async () => {
 			try {
 				setIsLoading(prev => ({...prev, listHotel: true}))
 				const { data: dataHotel } = await getDataHotel()
-				setDataHotel(dataHotel.data)
+				const hotelArray = dataHotel?.data ?? [];
+				setDataHotel(hotelArray)
 			} finally {
 				setIsLoading(prev => ({...prev, listHotel: false}))
 			}
@@ -47,38 +43,42 @@ const [dataHotel, setDataHotel] = useState()
 	useEffect(() => {
 		setTitle("Manage Hotel Page")
 	}, []);
-return (
-	<Layouts.ViewContainerLayout
-		buttons={
-			<>
-			<Layouts.ViewContainerButtonLayout>
-			  	<Link to={`/manage-hotel/add
-			  	`}>
-			  		<Button className="p-2" variant="primary">
-			  		  Add Hotel
-			  		</Button>
-			  	</Link>
-			  	
-			  	
-			
-			  </Layouts.ViewContainerButtonLayout>
-			</>
-		}
-	>
-<Layouts.ListContainerCardLayout
-	title={"List Hotel"}
-	singularName={"Hotel"}
-	items={[dataHotel]}
-	isLoading={isLoading.listHotel}
->
-	<HotelCard
-		dataHotel={dataHotel}
-		
-  	/>
-</Layouts.ListContainerCardLayout>
 
-	</Layouts.ViewContainerLayout>
-  )
+	
+	
+	return (
+		<Layouts.ViewContainerLayout
+			buttons={
+				<>
+				<Layouts.ViewContainerButtonLayout>
+					<Link to={`/manage-hotel/add
+					`}>
+						<Button className="p-2" variant="primary">
+						Add Hotel
+						</Button>
+					</Link>
+					
+					
+				
+				</Layouts.ViewContainerButtonLayout>
+				</>
+			}
+		>
+	<Layouts.ListContainerCardLayout
+		title={"List Hotel"}
+		singularName={"Hotel"}
+		items={[dataHotel]}
+		isLoading={isLoading.listHotel}
+	>
+		<HotelCard
+			dataHotel={dataHotel}
+
+			
+		/>
+	</Layouts.ListContainerCardLayout>
+
+		</Layouts.ViewContainerLayout>
+	)
 }
 export default ManageHotelPage
 

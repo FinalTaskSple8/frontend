@@ -45,28 +45,28 @@ export default menus;
 addMenu({
 	route: '/profile',
     label: 'Profile',
-    permission: '',
+    permission: 'user',
 	subMenus: []
 })
 
 addMenu({
 	route: '/manage-hotel',
     label: 'HotelManagement',
-    permission: '',
+    permission: 'user',
 	subMenus: []
 })
 
 addMenu({
 	route: '/search',
     label: 'Search',
-    permission: '',
+    permission: 'user',
 	subMenus: []
 })
 
 addMenu({
 	route: '/hotel',
     label: 'Hotel',
-    permission: '',
+    permission: 'user',
 	subMenus: []
 })
 

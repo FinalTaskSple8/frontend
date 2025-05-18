@@ -36,7 +36,8 @@ const [roomData, setRoomData] = useState()
 				setIsLoading(prev => ({...prev, listRoom: true}))
 				const roomData = await getRoomData({ hotelId });
 				console.log("📦 Room data for hotelId:", hotelId, roomData);
-				setRoomData(roomData.data)
+				const roomArray = roomData?.data?.data ?? [];
+				setRoomData(roomArray);
 			} finally {
 				setIsLoading(prev => ({...prev, listRoom: false}))
 			}
@@ -63,9 +64,8 @@ return (
 	isLoading={isLoading.listRoom}
 >
 	<RoomCard
-		roomData={roomData}
-		
-  	/>
+		roomData={[roomData]}
+	/>
 </Layouts.ListContainerCardLayout>
 
 	</Layouts.ViewContainerLayout>

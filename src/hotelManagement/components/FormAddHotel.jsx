@@ -44,8 +44,19 @@ const FormAddHotel = ({
   const navigate = useNavigate()
   
   const send = (data) => {
-    const cleanData = cleanFormData(data)
-  }
+  const cleanData = cleanFormData(data);
+	console.log("Data yang dikirim:", cleanData); // Tambahkan log untuk memeriksa data
+
+	saveHotel(cleanData)
+		.then((response) => {
+		notifySuccess("Hotel berhasil disimpan!");
+		navigate("/manage-hotel");
+		})
+		.catch((error) => {
+		console.error("Error saving hotel:", error);
+		notifyError("Gagal menyimpan hotel. Silakan coba lagi.");
+	});
+};
   
   
   return (
@@ -92,6 +103,21 @@ const FormAddHotel = ({
 		        )}
 		      />
 		  ,
+		  <Controller
+			key="price"
+			name="price"
+			control={control}
+			rules={{ required: "Harap masukkan price" }}
+			render={({ field, fieldState }) => (
+				<InputField
+				label="price"
+				placeholder="Masukkan price"
+				fieldState={fieldState}
+				{...field}
+				isRequired={true}
+				/>
+			)}
+			/>
 	
 		  ]}
 	

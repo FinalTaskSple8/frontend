@@ -16,11 +16,8 @@ const [isLoading, setIsLoading] = useState({
 	addRoom: false,
 
 	});
-	const { setTitle } = useContext(HeaderContext);
-
-
-
-	
+	const { hotelId } = useParams()
+	const { setTitle } = useContext(HeaderContext);	
 	useEffect(() => {
 		setTitle("Add Room Page")
 	}, []);

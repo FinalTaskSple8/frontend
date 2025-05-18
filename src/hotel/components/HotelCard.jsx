@@ -12,36 +12,21 @@ import { Button } from '@/commons/components';
 
 import * as Layouts from "@/commons/layouts";
 
-const HotelCard = ({ dataHotel,
-		 
-
-	}) => {
+const HotelCard = ({ dataHotel}) => {
   const { checkPermission } = useAuth();
   const { hotelId } = useParams()
-  
+  if (!Array.isArray(dataHotel) || dataHotel.length === 0) {
+    return <div>Tidak ada data untuk ditampilkan</div>;
+  }
   return (
     <Layouts.ListComponentCardLayout
-      items={[dataHotel]}
-  	
-  	itemsAttrs={[
-          {
-            id: "name",
-            condition: "",
-            label: "name",
-  		  featureName: "name",
-            editable: false
-          }
-  ,
-          {
-            id: "location",
-            condition: "",
-            label: "location",
-  		      featureName: "location",
-            editable: false
-          }
-  ]}
+      items={dataHotel}
+      itemsAttrs={[
+        { id: "name", label: "Name", featureName: "name", editable: false },
+        { id: "location", label: "Location", featureName: "location", editable: false },
+        { id: "price", label: "Price", featureName: "price", editable: false },
+      ]}
       itemsEvents={(hotelItem) => [
-        console.log("hotelItem", hotelItem),
         <Link to={`/hotel/${hotelItem.id}/rooms`}>
           <Button
             size="sm"
@@ -51,8 +36,6 @@ const HotelCard = ({ dataHotel,
             View Hotel
           </Button>
         </Link>
-        
-        
   	]}
     />
   )	

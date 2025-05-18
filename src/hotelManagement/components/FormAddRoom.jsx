@@ -30,6 +30,7 @@ import saveRoom from '../services/saveRoom'
 
 import { notifyError, notifySuccess} from "@/commons/utils/toaster";
 import * as Layouts from "@/commons/layouts";
+import { useParams } from "@/commons/hooks/useParams"
 
 const FormAddRoom = ({ 
  }) => {
@@ -37,15 +38,28 @@ const FormAddRoom = ({
     control, 
     handleSubmit,
   } = useForm()
-  
-  
-  
-  
+  const { hotelId } = useParams()
   const navigate = useNavigate()
   
   const send = (data) => {
-    const cleanData = cleanFormData(data)
-  }
+    const cleanData = cleanFormData(data);
+    const payload = {
+        hotelId: hotelId, // ID hotel tetap
+        number: cleanData.number,
+        type: cleanData.type,
+        price: cleanData.price,
+        isAvailable: true, // Default nilai isAvailable
+    };
+
+    saveRoom(payload)
+        .then(() => {
+            notifySuccess("Room successfully added!");
+            navigate(`/manage-hotel/${hotelId}/rooms`); // Gunakan path absolut
+        })
+        .catch((error) => {
+            notifyError("Failed to add room: " + error.message);
+        });
+};
   
   
   return (

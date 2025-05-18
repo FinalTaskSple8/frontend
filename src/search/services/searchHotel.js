@@ -1,22 +1,14 @@
-import axios from 'axios'
-import tokenManager from '@/commons/utils/token'
-import environment from '@/commons/utils/environment'
-
+import axios from 'axios';
+import environment from '@/commons/utils/environment';
 
 const searchHotel = (data = {}) => {
-	let body = data;
+  let body = data;
 
-	const { getToken } = tokenManager();
-	const token = getToken();
-	
-	return axios.post(`${environment.rootApi}/call/hotel/search`, body,
-	{
-		params: { token },
-		
-		headers: {
-			'Authorization': token,
-			
-		}
-	})} 
+  return axios.post(`${environment.rootApi}/call/hotel/search`, body, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
 
-export default searchHotel
+export default searchHotel;
