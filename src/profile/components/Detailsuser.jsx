@@ -41,6 +41,12 @@ const Detailsuser = ({ data }) => {
           condition: "",
           label: "phoneNum",
           featureName: "phoneNum",
+        },
+        {
+          id: "points",
+          condition: "",
+          label: "points",
+          featureName: "points",
         }
         
       ]}
