@@ -8,8 +8,8 @@ const createBooking = (data = {}) => {
 
 	const { getToken } = tokenManager();
 	const token = getToken();
-	
-	return axios.post(`${environment.rootApi}/call/booking/create`, body,
+
+	return axios.post(`http://localhost:7776/call/booking`, body,
 	{
 		params: { token },
 		
@@ -17,6 +17,7 @@ const createBooking = (data = {}) => {
 			'Authorization': token,
 			
 		}
-	})} 
+	})
+}
 
 export default createBooking

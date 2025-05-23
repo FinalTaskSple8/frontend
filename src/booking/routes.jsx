@@ -17,7 +17,7 @@ const bookingRoutes = [
 	
 ,
 { 
-	path: "/hotel/:hotelId/rooms/:number/booking/summary",
+	path: "/hotel/:hotelId/rooms/:number/booking/summary/:bookingId",
 	element: <BookingSummaryPage />,
 }
 

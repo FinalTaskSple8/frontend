@@ -43,73 +43,54 @@ const FormBooking = () => {
   const send = async (data) => {
   const cleanData = cleanFormData(data);
 
-  // Ambil data bookings, rooms, dan hotels dari db.json
-  const bookingsResponse = await axios.get('https://json-server-production-cbaa.up.railway.app/bookings');
-  const roomsResponse = await axios.get('https://json-server-production-cbaa.up.railway.app/rooms');
-  const hotelsResponse = await axios.get('https://json-server-production-cbaa.up.railway.app/hotels');
+  // Ambil data rooms dari API lokal
+  const roomsResponse = await axios.get('http://localhost:7776/call/room/list');
+  const rooms = roomsResponse.data.data;
+  console.log(rooms);
+  // Cari informasi kamar berdasarkan roomId tanpa menggunakan .find
+  let room = null;
+  for (let i = 0; i < rooms.length; i++) {
+    const r = rooms[i];
+    if (
+      r.number === parseInt(number) &&
+      r.hotelId === hotelId
+    ) {
+      room = r;
+      break;
+    }
+  }
 
-  const bookings = bookingsResponse.data;
-  const rooms = roomsResponse.data;
-  const hotels = hotelsResponse.data;
-
-  // Hitung bookingId baru
-  const newBookingId = (bookings.length > 0 ? bookings[bookings.length - 1].id + 1 : 1).toString();
-
-  // Cari harga kamar berdasarkan roomId
-  const room = rooms.find((room) => room.number === parseInt(number) && room.hotelId === hotelId);
   if (!room) {
     notifyError('Room not found!');
     return;
   }
 
-  // Cari informasi hotel berdasarkan hotelId
-  const hotel = hotels.find((hotel) => hotel.id === hotelId);
-  if (!hotel) {
-    notifyError('Hotel not found!');
-    return;
-  }
-
   const totalPrice = room.price;
-
-  // Buat data booking baru
+  console.log(currentUser);
+  // Buat data booking baru sesuai format API
   const newBooking = {
-    id: newBookingId,
     userId: currentUser.id,
-    roomId: room.id,
     checkInDate: cleanData.checkInDate,
     checkOutDate: cleanData.checkOutDate,
     numberOfGuests: cleanData.numberOfGuests,
-    totalPrice,
-    status: "CONFIRMED",
-    paymentId: newBookingId,
+    totalPrice: totalPrice.toFixed(2), // Pastikan format harga sesuai
+    status: "PENDING",
+    roomId: room.id,
   };
 
-  // POST data booking baru ke API
+  // POST data booking baru menggunakan createBooking
   try {
-    await axios.post('https://json-server-production-cbaa.up.railway.app/bookings', newBooking);
-
-    // Simpan data ke localStorage untuk digunakan di halaman ringkasan
-    const bookingSummary = {
-      bookingId: newBookingId,
-      userId: currentUser.id,
-      roomId: room.id,
-      hotelId: hotel.id,
-      hotelName: hotel.name,
-      hotelLocation: hotel.location,
-      totalPrice,
-      checkInDate: cleanData.checkInDate,
-      checkOutDate: cleanData.checkOutDate,
-      numberOfGuests: cleanData.numberOfGuests,
-    };
-    localStorage.setItem('bookingSummary', JSON.stringify(bookingSummary));
-
+    const response = await createBooking(newBooking);
+    const bookingId = response.data.data.id; // pastikan backend mengembalikan bookingId
+    console.log("response create booking", response.data.data.id);
+    // console.log("response create booking", response.data.data.data.id);
     notifySuccess('Booking berhasil dibuat!');
-    navigate(`/hotel/${hotelId}/rooms/${number}/booking/summary`);
-  } catch (error) {
-    console.error(error);
-    notifyError('Gagal membuat booking!');
-  }
-};
+    navigate(`/hotel/${hotelId}/rooms/${number}/booking/summary/${bookingId}`);
+      } catch (error) {
+        console.error(error);
+        notifyError('Gagal membuat booking!');
+      }
+    };
 
   return (
     <div>

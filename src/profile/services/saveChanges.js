@@ -1,19 +1,27 @@
-import axios from 'axios'
-import tokenManager from '@/commons/utils/token'
-import environment from '@/commons/utils/environment'
-
+import axios from 'axios';
+import tokenManager from '@/commons/utils/token';
+import environment from '@/commons/utils/environment';
 
 const saveChanges = async (userId, updatedData) => {
-	try {
-    const response = await axios.put(
-      `https://json-server-production-cbaa.up.railway.app/users/${userId}`,
-      updatedData
+  try {
+    // Mendapatkan token dari tokenManager
+    const { getToken } = tokenManager();
+    const token = getToken();
+
+    const response = await axios.post(
+      'http://localhost:7776/call/profile/update-info',
+      updatedData,
+      {
+        headers: {
+        'Authorization': token,
+      },
+      }
     );
-    return response.data;
+    return response.data.data;
   } catch (error) {
-    console.error("Error updating user data:", error);
-    throw new Error("Failed to update user data");
+    console.error('Error updating user data:', error);
+    throw new Error('Failed to update user data');
   }
 };
 
-export default saveChanges
+export default saveChanges;

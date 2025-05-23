@@ -1,137 +1,79 @@
 /*
-	Generated on 08/05/2025 by UI Generator PRICES-IDE
+	Generated on 22/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
-import React, { useEffect, useState, useContext } from 'react';
-import { Button } from "@/commons/components";
+import React, { useEffect, useState, useContext} from 'react'
+import { Button, Spinner } from "@/commons/components"
 import * as Layouts from '@/commons/layouts';
-import { HeaderContext } from "@/commons/components";
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
+import { useParams } from "@/commons/hooks/useParams"
+import { HeaderContext } from "@/commons/components"
+import getHotelById from '../services/getHotelById';
 
-const BookingSummaryPage = () => {
-  const [bookingSummary, setBookingSummary] = useState(null);
+import BookingSummary from '../components/BookingSummary'
+import getBookingSummaryData from '../services/getBookingSummaryData'
+const BookingSummaryPage = props => {
+const { number, hotelId, bookingId } = useParams();
+	const [isLoading, setIsLoading] = useState({
+	bookingSummary: false,
 
-  const { setTitle } = useContext(HeaderContext);
+	});
+	const { setTitle } = useContext(HeaderContext);
 
-  useEffect(() => {
-    setTitle("Booking Summary Page");
+const [bookingSummaryData, setBookingSummaryData] = useState()
+const [hotelData, setHotelData] = useState(null);
+useEffect(() => {
+	const fetchData = async () => {
+		try {
+			setIsLoading(prev => ({...prev, bookingSummary: true}))
+			const { data: bookingSummaryData } = await getBookingSummaryData({ id: bookingId })
+			setBookingSummaryData(bookingSummaryData.data, bookingId)
+      const hotel = await getHotelById(hotelId);
+      setHotelData(hotel.data);
+		} finally {
+			setIsLoading(prev => ({...prev, bookingSummary: false}))
+		}
+	}
+	fetchData()
+}, [])
 
-    // Ambil data booking dari localStorage
-    const data = JSON.parse(localStorage.getItem('bookingSummary'));
-    console.log('bookingSummary', data);
-    setBookingSummary(data);
-  }, []);
+	
+	useEffect(() => {
+		setTitle("Booking Summary Page")
+	}, []);
+return (
+	<Layouts.ViewContainerLayout
+		buttons={
+			<>
+			<Layouts.ViewContainerButtonLayout>
+			  	<Link to={{
+              pathname: `/hotel/${hotelId}/rooms/${number}/booking/${bookingId}/payment`,
+              state: { bookingSummary: bookingSummaryData }
+            }}>
+              <Button className="p-2" variant="primary">
+                Proceed to Payment
+              </Button>
+            </Link>
+			  	
+			  	
+			
+			  </Layouts.ViewContainerButtonLayout>
+			</>
+		}
+	>
+<Layouts.DetailContainerLayout
+	title={"Booking Summary"}
+	singularName={"Summary"}
+	items={{...bookingSummaryData}}
+	isLoading={isLoading.bookingSummary}
+	isCorrelatedWithAnotherComponent={false}
+>
+	<BookingSummary {...{ data : { ...bookingSummaryData, hotelData }}} />
+</Layouts.DetailContainerLayout>
 
-  const roomUpgrade = () => {
-    console.log("Room upgrade clicked");
-  };
+	</Layouts.ViewContainerLayout>
+  )
+}
+export default BookingSummaryPage
 
-  const additionalServices = () => {
-    console.log("Additional services clicked");
-  };
-
-  const earlyCheckInOut = () => {
-    console.log("Early Check-In/Out clicked");
-  };
-
-  const cancelBooking = () => {
-    console.log("Cancel booking clicked");
-  };
-  const goToPayment = () => {
-  if (bookingSummary?.hotelId && bookingSummary?.roomId && bookingSummary?.bookingId) {
-    navigate(`/hotel/${bookingSummary.hotelId}/rooms/${bookingSummary.roomId}/booking/${bookingSummary.bookingId}/payment`, {
-      state: { bookingSummary }
-    });
-  } else {
-    console.warn("Booking info is incomplete.");
-  }
-};
-console.log('bookingSummary', bookingSummary);
-  return (
-    <Layouts.DetailComponentLayout
-      item={bookingSummary}
-      itemsAttrs={[
-        {
-          id: "hotelId",
-          condition: "",
-          label: "hotelId",
-          featureName: "hotelId",
-        },
-        {
-          id: "checkOutDate",
-          condition: "",
-          label: "checkOutDate",
-          featureName: "checkOutDate",
-        },
-        {
-          id: "checkInDate",
-          condition: "",
-          label: "checkInDate",
-          featureName: "checkInDate",
-        },
-        {
-          id: "totalPrice",
-          condition: "",
-          label: "totalPrice",
-          featureName: "totalPrice",
-        },
-        {
-          id: "status",
-          condition: "",
-          label: "status",
-          featureName: "status",
-        },
-        {
-          id: "bookingId",
-          condition: "",
-          label: "bookingId",
-          featureName: "bookingId",
-        },
-        {
-          id: "upgradedRoomType",
-          condition: "",
-          label: "upgradedRoomType",
-          featureName: "upgradedRoomType",
-        },
-        {
-          id: "additionalServices",
-          condition: "",
-          label: "additionalServices",
-          featureName: "additionalServices",
-        },
-        {
-          id: "earlyCheckIn",
-          condition: "",
-          label: "earlyCheckIn",
-          featureName: "earlyCheckIn",
-        },
-        {
-          id: "lateCheckOut",
-          condition: "",
-          label: "lateCheckOut",
-          featureName: "lateCheckOutFee",
-        },
-      ]}
-      itemsEvents={[
-        <Button
-          key="cancel"
-          variant="secondary"
-          onClick={cancelBooking}
-        >
-          Cancel Booking
-        </Button>,
-        <Button
-          key="payment"
-          variant="primary"
-          onClick={goToPayment}
-        >
-          Proceed to Payment
-        </Button>
-      ]}
-      itemsModals={[]}
-    />
-  );
-};
-
-export default BookingSummaryPage;

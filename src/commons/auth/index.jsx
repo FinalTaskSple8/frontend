@@ -185,9 +185,9 @@ const loginPassword = async (params) => {
   });
 
   if (data.status === 200) {
-    const tokenId = data.data.token;
-    const user = data.data.user;
-
+    const tokenId = data.data.data.token;
+    const user = data.data.data.user;
+    console.log("data", data.data.data);
     // Simpan token dan set pengguna sebagai terautentikasi
     login(tokenId);
     setPermissions(["user"]); // Atur izin pengguna jika diperlukan

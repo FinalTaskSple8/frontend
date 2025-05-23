@@ -1,61 +1,38 @@
 /*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
-	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+  Generated on 09/05/2025 by UI Generator PRICES-IDE
+  https://amanah.cs.ui.ac.id/research/ifml-regen
+  version 3.9.0
 */
-import React, { useContext } from 'react';
-import { useNavigate, Link } from "react-router";
 
+import React from 'react';
 import { useAuth } from '@/commons/auth';
-import { Button, Detail, VisualizationAttr, Modal, Spinner } from '@/commons/components';
-
-
 import * as Layouts from "@/commons/layouts";
 
-
 const Detailsuser = ({ data }) => {
-    const { checkPermission } = useAuth();
-    const navigate = useNavigate();
-  
-  
+  const { checkPermission } = useAuth();
+  console.log("Data in Detailsuser:", data);
   return (
     <Layouts.DetailComponentLayout
       item={data}
       itemsAttrs={[
         {
           id: "name",
-          condition: "",
-          label: "name",
+          label: "Nama",
           featureName: "name",
-        }
-        ,
-        {
-          id: "email",
-          condition: "",
-          label: "email",
-          featureName: "email",
-        }
-        ,
-        {
-          id: "phoneNum",
-          condition: "",
-          label: "phoneNum",
-          featureName: "phoneNum",
         },
         {
-          id: "points",
-          condition: "",
-          label: "points",
-          featureName: "points",
-        }
-        
+          id: "email",
+          label: "Email",
+          featureName: "email",
+        },
+        {
+          id: "phoneNum",
+          label: "Nomor Telepon",
+          featureName: "phoneNum",
+        },  
       ]}
-      itemsEvents={[
-        
-      ]}
-      itemsModals={[
-        
-      ]}
+      itemsEvents={[]}
+      itemsModals={[]}
     />
   );
 };

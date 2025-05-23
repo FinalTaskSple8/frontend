@@ -38,34 +38,33 @@ const FormForm = () => {
   const navigate = useNavigate();
 
   const send = async (data) => {
-    try {
-      const updatedData = {
-        ...currentUser,
-        name: data.name,
-        email: data.email,
-        phoneNum: data.phoneNum,
-      };
+  try {
+    const updatedData = {
+      ...currentUser,
+      name: data.name, // Pastikan sesuai dengan backend
+      phone_number: data.phoneNum, // Sesuaikan key dengan backend
+    };
 
-      const response = await saveChanges(currentUser.id, updatedData);
+    const response = await saveChanges(currentUser.userId, updatedData);
 
-      if (response) {
-        setCurrentUser(response); // Perbarui data pengguna di context
-        notifySuccess("Data berhasil diperbarui!");
-        navigate("/profile");
-      } else {
-        notifyError("Gagal memperbarui data pengguna.");
-      }
-    } catch (error) {
-      console.error("Error saving changes:", error);
+    if (response) {
+      setCurrentUser(response); // Perbarui data pengguna di context
+      notifySuccess("Data berhasil diperbarui!");
+      navigate("/profile");
+    } else {
       notifyError("Gagal memperbarui data pengguna.");
     }
-  };
+  } catch (error) {
+    console.error("Error saving changes:", error);
+    notifyError("Gagal memperbarui data pengguna.");
+  }
+};
   
   
   return (
 	<div>
 	  <Layouts.FormComponentLayout
-		  title="Form" 
+		  title="Edit Profile" 
 		  onSubmit={handleSubmit(send)}
 	
 	    vas={[
@@ -82,23 +81,6 @@ const FormForm = () => {
 				  <InputField
 		            label="name"
 		            placeholder="Masukkan name"
-		            fieldState={fieldState}
-					{...field}
-					isRequired={true}
-		          />
-		        )}
-		      />
-	,
-			  
-			  <Controller
-			    key="email"
-		        name="email"
-		        control={control}
-				rules={{ required: "Harap masukkan email" }} 
-		        render={({ field, fieldState }) => (
-				  <InputField
-		            label="email"
-		            placeholder="Masukkan email"
 		            fieldState={fieldState}
 					{...field}
 					isRequired={true}

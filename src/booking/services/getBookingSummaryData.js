@@ -7,12 +7,13 @@ const getBookingSummaryData = (params = {}) => {
 	const { getToken } = tokenManager();
 	const token = getToken();
 	let paramsGet = Object.assign(params, {token});
-	return axios.get(`${environment.rootApi}/getBookingSummaryData`, {
-		params: paramsGet,		
-		headers: {
-			'Authorization': token,
-		}
-	}).catch((error) => {
+	return axios.get(`http://localhost:7776/call/booking/get-by-id`, {
+  params: { id: params.id },
+  headers: {
+    'Authorization': token,
+  }
+})
+.catch((error) => {
 		console.error(error);
 		notifyError(error);
 	})
