@@ -179,22 +179,15 @@ export const AuthProvider = ({ children }) => {
   // [END] GOOGLE Method
 const [currentUser, setCurrentUser] = React.useState(null);
 const loginPassword = async (params) => {
-  const data = await AuthLoginPwdService.call({
-    email: params.email,
-    password: params.password,
-  });
+  const token = getToken();
+  const result = await AuthLoginPwdService.call(params, token, setCurrentUser);
 
-  if (data.status === 200) {
-    const tokenId = data.data.data.token;
-    const user = data.data.data.user;
-    console.log("data", data.data.data);
-    // Simpan token dan set pengguna sebagai terautentikasi
-    login(tokenId);
-    setPermissions(["user"]); // Atur izin pengguna jika diperlukan
-    setCurrentUser(user);
-    console.log("User logged in:", user);
+  if (result.status === 200) {
+    login(result.data.token);
+    setPermissions(["user"]);
+    console.log("User logged in:", result.data.user);
   } else {
-    alert(data.message); // Tampilkan pesan error
+    alert(result.message || "Login failed");
   }
 };
 

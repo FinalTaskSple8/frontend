@@ -42,9 +42,9 @@ const FormBooking = () => {
 
   const send = async (data) => {
   const cleanData = cleanFormData(data);
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   // Ambil data rooms dari API lokal
-  const roomsResponse = await axios.get('http://localhost:7776/call/room/list');
+  const roomsResponse = await axios.get(`${backendUrl}/call/room/list`);
   const rooms = roomsResponse.data.data;
   console.log(rooms);
   // Cari informasi kamar berdasarkan roomId tanpa menggunakan .find

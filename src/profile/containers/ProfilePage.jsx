@@ -7,6 +7,7 @@ import { useAuth } from "@/commons/auth";
 import tokenManager from '@/commons/utils/token'
 import getUserData from "@/profile/services/getUserData"; 
 import Detailsuser from "../components/Detailsuser";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const ProfilePage = () => {
   const { getToken } = tokenManager();
   const token = getToken();
@@ -21,7 +22,7 @@ const ProfilePage = () => {
     const createAndFetchProfile = async () => {
       try {
         // Auto-create profile
-        const response = await fetch("http://localhost:7776/call/profile", {
+        const response = await fetch(`${backendUrl}/call/profile`, {
           method: "POST",
           headers: {
             'Authorization': token,

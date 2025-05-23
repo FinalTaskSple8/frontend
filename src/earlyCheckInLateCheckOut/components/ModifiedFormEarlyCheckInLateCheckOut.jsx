@@ -34,7 +34,7 @@ import { notifyError, notifySuccess} from "@/commons/utils/toaster";
 import * as Layouts from "@/commons/layouts";
 import { useParams } from "@/commons/hooks/useParams"
 
-
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const ModifiedFormEarlyCheckInLateCheckOut = ({ 
  }) => {
@@ -47,9 +47,8 @@ const ModifiedFormEarlyCheckInLateCheckOut = ({
 	const { hotelId, number } = useParams();
 	const save = async (data) => {
 		const cleanData = cleanFormData(data);
-		
 		// Ambil data rooms dari API lokal
-		const roomsResponse = await axios.get('http://localhost:7776/call/room/list');
+		const roomsResponse = await axios.get(`${backendUrl}/call/room/list`);
 		const rooms = roomsResponse.data.data;
 		console.log(rooms);
 		// Cari informasi kamar berdasarkan roomId tanpa menggunakan .find

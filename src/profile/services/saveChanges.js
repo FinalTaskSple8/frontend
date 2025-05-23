@@ -1,7 +1,7 @@
 import axios from 'axios';
 import tokenManager from '@/commons/utils/token';
 import environment from '@/commons/utils/environment';
-
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const saveChanges = async (userId, updatedData) => {
   try {
     // Mendapatkan token dari tokenManager
@@ -9,7 +9,7 @@ const saveChanges = async (userId, updatedData) => {
     const token = getToken();
 
     const response = await axios.post(
-      'http://localhost:7776/call/profile/update-info',
+      `${backendUrl}/call/profile/update-info`,
       updatedData,
       {
         headers: {
