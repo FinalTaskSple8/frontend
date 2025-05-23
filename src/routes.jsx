@@ -10,6 +10,7 @@ import searchRoutes from "@/search/routes";
 import hotelRoutes from "@/hotel/routes";
 import bookingRoutes from "@/booking/routes";
 import paymentRoutes from "./payment/routes";
+import earlyCheckInLateCheckOutRoutes from "./earlyCheckInLateCheckOut/routes";
 
 const GlobalRoutes = () => {
   const router = useRoutes([
@@ -24,6 +25,7 @@ const GlobalRoutes = () => {
 	...hotelRoutes, 
 	...bookingRoutes, 
 	...paymentRoutes,
+	...earlyCheckInLateCheckOutRoutes,
   ])
   return router
 }

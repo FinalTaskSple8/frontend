@@ -1,22 +1,56 @@
-/*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
-	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
-*/
 import React, { useEffect, useContext } from "react";
 import { Button } from "@/commons/components";
 import * as Layouts from "@/commons/layouts";
 import { Link } from "react-router";
 import { HeaderContext } from "@/commons/components";
 import { useAuth } from "@/commons/auth";
-
+import tokenManager from '@/commons/utils/token'
+import getUserData from "@/profile/services/getUserData"; 
+import Detailsuser from "../components/Detailsuser";
 const ProfilePage = () => {
-  const { currentUser } = useAuth(); // Ambil data pengguna dari context
+  const { getToken } = tokenManager();
+  const token = getToken();
+  console.log(token);
   const { setTitle } = useContext(HeaderContext);
+
+  const { currentUser, setCurrentUser } = useAuth(); // tambahkan setCurrentUser
 
   useEffect(() => {
     setTitle("Profile Page");
-  }, []);
+
+    const createAndFetchProfile = async () => {
+      try {
+        // Auto-create profile
+        const response = await fetch("http://localhost:7776/call/profile", {
+          method: "POST",
+          headers: {
+            'Authorization': token,
+          },
+          body: JSON.stringify({ phone_number: "" }),
+        });
+
+        if (!response.ok) {
+          console.error("Failed to create profile:", response.statusText);
+          return;
+        }
+
+        console.log("Profile created successfully");
+
+        // Ambil data user setelah profil dibuat
+        const userData = await getUserData();
+        if (userData) {
+          setCurrentUser(userData);
+          console.log("User profile fetched:", userData);
+        }
+      } catch (error) {
+        console.error("Error during profile creation/fetching:", error);
+      }
+    };
+
+    if (!currentUser) {
+      createAndFetchProfile();
+    }
+  }, [currentUser, setTitle, token]);
 
   return (
     <Layouts.ViewContainerLayout
@@ -31,21 +65,16 @@ const ProfilePage = () => {
       }
     >
       <Layouts.DetailContainerLayout
-        title={"Details user"}
-        singularName={"user"}
-        items={currentUser} // Tampilkan data pengguna
-        isLoading={!currentUser}
-        isCorrelatedWithAnotherComponent={false}
-      >
-        <div>
-          <p><strong>Nama:</strong> {currentUser?.name}</p>
-          <p><strong>Email:</strong> {currentUser?.email}</p>
-          <p><strong>Nomor Telepon:</strong> {currentUser?.phoneNum}</p>
-        </div>
-      </Layouts.DetailContainerLayout>
+  title={"Details user"}
+  singularName={"user"}
+  items={currentUser}
+  isLoading={!currentUser}
+  isCorrelatedWithAnotherComponent={false}
+>
+  <Detailsuser data={currentUser} />
+</Layouts.DetailContainerLayout>
     </Layouts.ViewContainerLayout>
   );
 };
 
 export default ProfilePage;
-

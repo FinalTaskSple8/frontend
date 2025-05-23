@@ -32,6 +32,7 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/static\//, ""),
         },
+        '/call': 'http://localhost:7776',
       },
     },
     envDir: process.cwd(),

@@ -3,13 +3,13 @@ import tokenManager from '@/commons/utils/token'
 import environment from '@/commons/utils/environment'
 
 
-const sendEarlyCheckInCheckOut = (data = {}) => {
+const addEarlyCheckInLateCheckOut = (data = {}) => {
 	let body = data;
 
 	const { getToken } = tokenManager();
 	const token = getToken();
 	
-	return axios.post(`${environment.rootApi}/call/earlycheckincheckout/send`, body,
+	return axios.post(`http://localhost:7776/call/earlycheckinout/save`, body,
 	{
 		params: { token },
 		
@@ -19,4 +19,4 @@ const sendEarlyCheckInCheckOut = (data = {}) => {
 		}
 	})} 
 
-export default sendEarlyCheckInCheckOut
+export default addEarlyCheckInLateCheckOut

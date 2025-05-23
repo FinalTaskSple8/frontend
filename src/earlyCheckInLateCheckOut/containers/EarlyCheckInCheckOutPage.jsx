@@ -1,5 +1,5 @@
 /*
-	Generated on 18/05/2025 by UI Generator PRICES-IDE
+	Generated on 22/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -10,19 +10,27 @@ import { Link } from "react-router";
 import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useSearchParams } from "react-router";
-import FormAdditionalServices from '../components/FormAdditionalServices'
-const AdditionalServicePage = props => {
+import ModifiedFormEarlyCheckInLateCheckOut from '../components/ModifiedFormEarlyCheckInLateCheckOut'
+const EarlyCheckInCheckOutPage = props => {
 const [isLoading, setIsLoading] = useState({
-	additionalServices: false,
+	earlyCheckInLateCheckOut: false,
 
 	});
 	const { setTitle } = useContext(HeaderContext);
 
+useEffect(() => {
+    const fetch = async () => {
+	  setIsLoading(prev => ({...prev, earlyCheckInLateCheckOut: true}))
 
+
+	    setIsLoading(prev => ({...prev, earlyCheckInLateCheckOut: false}))
+    }
+	fetch()
+  }, [])
 
 	
 	useEffect(() => {
-		setTitle("Additional Service Page")
+		setTitle("Early CheckIn CheckOut Page")
 	}, []);
 return (
 	<Layouts.ViewContainerLayout
@@ -33,10 +41,10 @@ return (
 		}
 	>
 <Layouts.FormContainerLayout
-		singularName={"Services"}
-		
+		singularName={"CheckIn"}
+		isLoading={isLoading.earlyCheckInLateCheckOut}
 	>
-		<FormAdditionalServices
+		<ModifiedFormEarlyCheckInLateCheckOut
 			{...props}
 		/>
 	</Layouts.FormContainerLayout>
@@ -44,5 +52,5 @@ return (
 	</Layouts.ViewContainerLayout>
   )
 }
-export default AdditionalServicePage
+export default EarlyCheckInCheckOutPage
 

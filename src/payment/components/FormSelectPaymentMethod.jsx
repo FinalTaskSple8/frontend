@@ -105,21 +105,6 @@ const FormSelectPaymentMethod = () => {
               />
             )}
           />,
-          <Controller
-			    key="code"
-		        name="code"
-		        control={control}
-		        render={({ field, fieldState }) => (
-				  <InputField
-		            label="Promo Code"
-		            placeholder="Masukkan promo code"
-		            fieldState={fieldState}
-					{...field}
-					isRequired={false}
-		          />
-		        )}
-		      />
-		  ,
         ]}
         itemsEvents={[
           <Button key="Send" type="submit" variant="primary">

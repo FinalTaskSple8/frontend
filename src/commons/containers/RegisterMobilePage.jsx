@@ -18,7 +18,7 @@ const RegisterMobilePage = () => {
 
   const registerWithPassword = (data) => {
     registerPassword(data);
-    navigate(location.pathname + location.search);
+    navigate("/login");
   };
 
   if (isAuthenticated) {

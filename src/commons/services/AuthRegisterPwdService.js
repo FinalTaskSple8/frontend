@@ -14,7 +14,7 @@ class AuthRegisterPwdService {
 
     try {
       const response = await axios.post(
-        `${environment.rootApi}/auth/user/save?${encodedData}`,
+        "http://localhost:7776/auth/register",
         params,
       );
 
