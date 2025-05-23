@@ -115,27 +115,6 @@ console.log('bookingSummary', bookingSummary);
       ]}
       itemsEvents={[
         <Button
-          key="upgrade"
-          variant="secondary"
-          onClick={roomUpgrade}
-        >
-          Room Upgrade
-        </Button>,
-        <Button
-          key="services"
-          variant="secondary"
-          onClick={additionalServices}
-        >
-          Additional Services
-        </Button>,
-        <Button
-          key="early"
-          variant="secondary"
-          onClick={earlyCheckInOut}
-        >
-          Early Check In/Out
-        </Button>,
-        <Button
           key="cancel"
           variant="secondary"
           onClick={cancelBooking}
