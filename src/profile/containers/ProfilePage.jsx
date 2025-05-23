@@ -4,53 +4,32 @@ import * as Layouts from "@/commons/layouts";
 import { Link } from "react-router";
 import { HeaderContext } from "@/commons/components";
 import { useAuth } from "@/commons/auth";
-import tokenManager from '@/commons/utils/token'
 import getUserData from "@/profile/services/getUserData"; 
 import Detailsuser from "../components/Detailsuser";
-const ProfilePage = () => {
-  const { getToken } = tokenManager();
-  const token = getToken();
-  console.log(token);
-  const { setTitle } = useContext(HeaderContext);
 
-  const { currentUser, setCurrentUser } = useAuth(); // tambahkan setCurrentUser
+const ProfilePage = () => {
+  const { setTitle } = useContext(HeaderContext);
+  const { currentUser, setCurrentUser } = useAuth();
 
   useEffect(() => {
     setTitle("Profile Page");
 
-    const createAndFetchProfile = async () => {
+    const fetchProfile = async () => {
       try {
-        // Auto-create profile
-        const response = await fetch("http://localhost:7776/call/profile", {
-          method: "POST",
-          headers: {
-            'Authorization': token,
-          },
-          body: JSON.stringify({ phone_number: "" }),
-        });
-
-        if (!response.ok) {
-          console.error("Failed to create profile:", response.statusText);
-          return;
-        }
-
-        console.log("Profile created successfully");
-
-        // Ambil data user setelah profil dibuat
         const userData = await getUserData();
         if (userData) {
           setCurrentUser(userData);
           console.log("User profile fetched:", userData);
         }
       } catch (error) {
-        console.error("Error during profile creation/fetching:", error);
+        console.error("Error fetching profile:", error);
       }
     };
 
     if (!currentUser) {
-      createAndFetchProfile();
+      fetchProfile();
     }
-  }, [currentUser, setTitle, token]);
+  }, [currentUser, setTitle, setCurrentUser]);
 
   return (
     <Layouts.ViewContainerLayout
@@ -65,14 +44,14 @@ const ProfilePage = () => {
       }
     >
       <Layouts.DetailContainerLayout
-  title={"Details user"}
-  singularName={"user"}
-  items={currentUser}
-  isLoading={!currentUser}
-  isCorrelatedWithAnotherComponent={false}
->
-  <Detailsuser data={currentUser} />
-</Layouts.DetailContainerLayout>
+        title={"Details user"}
+        singularName={"user"}
+        items={currentUser}
+        isLoading={!currentUser}
+        isCorrelatedWithAnotherComponent={false}
+      >
+        <Detailsuser data={currentUser} />
+      </Layouts.DetailContainerLayout>
     </Layouts.ViewContainerLayout>
   );
 };

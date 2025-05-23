@@ -1,7 +1,7 @@
 import axios from "axios";
 import tokenManager from "@/commons/utils/token";
 import environment from "@/commons/utils/environment";
-
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 class AuthRegisterPwdService {
   static call = async (params = {}) => {
     const { getToken } = tokenManager();
@@ -14,8 +14,8 @@ class AuthRegisterPwdService {
 
     try {
       const response = await axios.post(
-        "http://localhost:7776/auth/register",
-        params,
+        `${backendUrl}/auth/register`,
+        params
       );
 
       return response;

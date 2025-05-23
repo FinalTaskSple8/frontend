@@ -1,6 +1,6 @@
 import axios from "axios";
 import { notifyError } from "@/commons/utils/toaster";
-
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const getRoomData = (params = {}) => {
     if (!params.hotelId) {
         const errorMessage = "Missing required parameter: hotelId";
@@ -9,7 +9,7 @@ const getRoomData = (params = {}) => {
         return Promise.reject(new Error(errorMessage));
     }
 
-    return axios.post("http://localhost:7776/call/room/by-hotel", {
+    return axios.post(`${backendUrl}/call/room/by-hotel`, {
         hotelId: params.hotelId, // Send hotelId in the request body
     }).catch((error) => {
         console.error(error);
