@@ -42,8 +42,9 @@ class AuthLoginPwdService {
       // Simpan current user jika ada
       if (setCurrentUser) {
         setCurrentUser(response3.data.data);
+        
       }
-
+      
       return {
         status: 200,
         data: {

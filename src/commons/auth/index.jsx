@@ -181,11 +181,11 @@ const [currentUser, setCurrentUser] = React.useState(null);
 const loginPassword = async (params) => {
   const token = getToken();
   const result = await AuthLoginPwdService.call(params, token, setCurrentUser);
-
+  console.log("result", result.data.data.token);
   if (result.status === 200) {
-    login(result.data.token);
+    login(result.data.data.token);
     setPermissions(["user"]);
-    console.log("User logged in:", result.data.user);
+    console.log("User logged in:", result.data.data.user);
   } else {
     alert(result.message || "Login failed");
   }
@@ -222,6 +222,7 @@ const loginPassword = async (params) => {
 
   const login = (token, tokenKeepLogin, callback) => {
     setToken(token);
+    console.log("token", token);
     if (tokenKeepLogin) {
       setTokenKeepLogin(tokenKeepLogin);
     }
