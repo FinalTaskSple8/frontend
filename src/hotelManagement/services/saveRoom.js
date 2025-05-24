@@ -2,7 +2,7 @@ import axios from 'axios'
 import tokenManager from '@/commons/utils/token'
 import environment from '@/commons/utils/environment'
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
-const saveHotel = (data = {}) => {
+const saveRoom = (data = {}) => {
     let body = data;
 
     const { getToken } = tokenManager();
@@ -15,4 +15,4 @@ const saveHotel = (data = {}) => {
     });
 }
 
-export default saveHotel
+export default saveRoom
