@@ -4,6 +4,8 @@ Kode sumber aplikasi React ini dihasilkan oleh [IFML UI Generator](https://gitla
 
 Buat berkas `.env` di *root path* dengan merujuk pada berkas `.env.template` 
 
+## Deployment URL Basic Pemesanan : https://basic.siph-cok.com
+
 ## Menjalankan
 
 - `npm start`: Menjalankan aplikasi dalam mode pengembangan.
